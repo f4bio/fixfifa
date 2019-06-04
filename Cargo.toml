@@ -15,7 +15,6 @@ keywords = ["random", "rng"]
 categories = ["algorithms", "no-std"]
 exclude = ["/utils/*", "/.travis.yml", "/appveyor.yml", ".gitignore"]
 autobenches = true
-build = "build.rs"
 
 [badges]
 travis-ci = { repository = "rust-random/rand" }
