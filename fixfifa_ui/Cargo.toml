@@ -1,0 +1,20 @@
+[package]
+name = "fixfifa_ui"
+version = "0.1.0"
+authors = ["Alexander Matte <alexmatte1989@gmail.com>", "Fabio Tea <iam@f4b.io>"]
+description = "My super awesome Rust, WebAssembly, and Webpack project!"
+license = "Apache-2.0/MIT"
+readme = "README.md"
+repository = "https://github.com/f4bio/fixfifa"
+edition = "2018"
+
+[dependencies]
+log = "0.4.6"
+log4rs = "0.8.3"
+serde = "1.0.92"
+serde_derive = "1.0.92"
+serde_json = "1.0.39"
+rocket = "0.4.1"
+rocket_contrib = {version =  "0.4.1", features = ["tera_templates", "json"]}
+systray = { git = "https://gitlab.com/f4bio/systray-rs", branch = "develop" }
+fixfifa_common = { path = "../fixfifa_common", version = "0.1.0" }

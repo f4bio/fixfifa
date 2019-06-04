@@ -1,0 +1,101 @@
+{% extends "base" %}
+
+{% block content %}
+
+{% if flash %}
+<div class="toast toast-{{flash.0}}">
+  <button class="btn btn-clear float-right"></button>
+  {{flash}}
+</div>
+{% endif %}
+
+<div class="main-container">
+
+  <div class="content-container">
+    <div class="card">
+      <div class="card-image">
+        <div class="parallax">
+          <div class="parallax-top-left" tabindex="1"></div>
+          <div class="parallax-top-right" tabindex="2"></div>
+          <div class="parallax-bottom-left" tabindex="3"></div>
+          <div class="parallax-bottom-right" tabindex="4"></div>
+          <div class="parallax-content">
+            <div class="parallax-front">
+              <h2>tvOS parallax demo</h2>
+            </div>
+            <div class="parallax-back">
+              <img src="/assets/images/macos-sierra.jpg" class="img-responsive rounded" style="width: 100%;"
+                alt="random cover image" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-header">
+        <div class="card-title h5">Esse magna ullamco sint aute cupidatat sunt sunt est ipsum ipsum ad dolor proident.
+        </div>
+        <div class="card-subtitle text-gray">Reprehenderit voluptate reprehenderit pariatur velit fugiat culpa aliquip
+          anim exercitation laborum adipisicing occaecat ad.</div>
+      </div>
+      <div class="card-body">
+        <!-- standard Accordions example -->
+        <div class="accordion">
+          <input type="checkbox" id="accordion-1" name="accordion-checkbox" hidden>
+          <label class="accordion-header" for="accordion-1">
+            <i class="icon icon-arrow-right mr-1"></i> Title
+          </label>
+          <div class="accordion-body">
+            <!-- Accordions content -->
+            <ul>
+              {% if settings %}
+              <li>alt tab: {{ settings.alt_tab }}</li>
+              <li>blacklist: {{ settings.blacklist }}</li>
+              <li>skip_launcher: {{ settings.skip_launcher }}</li>
+              <li>skip_language_selection: {{ settings.skip_language_selection }}</li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+        <!-- form switch control -->
+        <form class="form-horizontal" action="/settings" method="post">
+          <div class="form-group">
+            <label class="form-switch" for="alt_tab">
+              <input id="alt_tab" type="checkbox" {% if settings.alt_tab %} value="true" checked {% else %}
+                value="false" {% endif %} name="alt_tab" class="form-input" />
+              <i class="form-icon"></i> Alt Tab
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="form-switch" for="blacklist">
+              <input id="blacklist" type="checkbox" {% if settings.blacklist %} value="true" checked {% else %}
+                value="false" {% endif %} name="blacklist" class="form-input" />
+              <i class="form-icon"></i> Blacklist
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="form-switch" for="skip_launcher">
+              <input id="skip_launcher" type="checkbox" {% if settings.skip_launcher %} value="true" checked {% else %}
+                value="false" {% endif %} name="skip_launcher" class="form-input" />
+              <i class="form-icon"></i> Skip Launcher
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="form-switch" for="skip_language_selection">
+              <input id="skip_language_selection" type="checkbox" {% if settings.skip_language_selection %} value="true"
+                checked {% else %} value="false" {% endif %} name="skip_language_selection" class="form-input" />
+              <i class="form-icon"></i> Skip Language Selection
+            </label>
+            <!-- form select control -->
+            <select class="form-select">
+              <option>eng,us</option>
+              <option>ger,de</option>
+              <option>ita,it</option>
+              <option>spa,es</option>
+            </select>
+          </div>
+          <button type="submit" class="btn">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

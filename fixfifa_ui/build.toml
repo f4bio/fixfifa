@@ -1,0 +1,24 @@
+[tasks.format]
+install_crate = "rustfmt"
+command = "cargo"
+args = ["fmt", "--package", "fixfifa-ui"]
+
+[tasks.webpack]
+script_runner = "@shell"
+command = "npm"
+args = [ "install" ]
+
+[tasks.npm-install]
+script = ["npm install"]
+
+[tasks.npm-build]
+script = ["npm run build"]
+
+[tasks.npm]
+dependencies = ["npm-install", "npm-build"]
+
+[tasks.web]
+script = [
+  "npm install",
+  "npm run build"
+]
