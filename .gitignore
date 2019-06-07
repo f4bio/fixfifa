@@ -180,5 +180,6 @@ $RECYCLE.BIN/
 
 ### Project related ###
 /.tmp.delete.md
+/config.db
 
 !.gitkeep

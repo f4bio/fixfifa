@@ -127,7 +127,7 @@ impl Process {
     unsafe { LoadLibraryExA(path_c.as_ptr() as LPCSTR, NULL, DONT_RESOLVE_DLL_REFERENCES) };
   }
 
-  fn get_module(&self, name: &str) -> Result<HMODULE, &str> {
+  fn get_module(&self, name: &str) -> Result<HMODULE, String> {
     let mut modules: [HMODULE; 1024] = [0 as HMODULE; 1024];
     let mut num_modules: DWORD = 0;
     let success = unsafe {
@@ -140,7 +140,7 @@ impl Process {
       )
     };
     if success == FALSE {
-      return Err("Could not get module.");
+      return Err(String::from("Could not get module."));
     }
 
     for i in 0..(num_modules as SIZE_T) {
@@ -161,8 +161,7 @@ impl Process {
         }
       }
     }
-
-    return Err("Module not found.");
+    return Err(format!("Module '{}' not found.", name));
   }
 
   pub fn exec(&self, module_name: &str, proc_name: &str) {
@@ -177,11 +176,11 @@ impl Process {
   }
 }
 
-pub fn get_module(name: &str) -> Result<HMODULE, &str> {
+pub fn get_module(name: &str) -> Result<HMODULE, String> {
   let c_str = CString::new(name).unwrap();
   let module_handle: HMODULE = unsafe { GetModuleHandleA(c_str.as_ptr() as LPCSTR) };
   if module_handle as LPARAM == 0 {
-    return Err("Module not found.");
+    return Err(format!("Module '{}' not found.", name));
   }
   return Ok(module_handle);
 }

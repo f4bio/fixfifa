@@ -25,6 +25,7 @@ use std::thread::JoinHandle;
 use std::time::Duration;
 use systray::Application;
 use fixfifa_common::settings::{Setting, Settings};
+use std::path::Path;
 
 // TODO: use following statics instead of hardcoded paths
 //Path::new("/etc").join("passwd")
@@ -120,11 +121,15 @@ fn start_tray(tx: Sender<u8>) -> JoinHandle<()> {
         let port = 31337;
         let _url = format!("http://{}:{}", address, port);
         let mut app = w;
+        let ico_path = Path::new(".")
+          .join("assets")
+          .join("tray_icon-256.ico");
 
         // icon
         app
-          .set_icon_from_file(&String::from("..\\assets\\tray_icon-256.ico"))
-          .ok();
+          .set_icon_from_file(
+            &String::from(ico_path.canonicalize().unwrap().to_str().unwrap())
+          ).ok();
         // top most entry ("Open Settings")
         app
           .add_menu_item(&"Settings".to_string(), move |_| {
