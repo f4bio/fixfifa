@@ -190,17 +190,17 @@ pub fn start_ui() {
   let _web_thread = start_web();
   let _tray_thread = start_tray(tx);
 
-  println!("Listing on channel...");
-
-  for received in rx {
-    println!("Got: {}", received);
-
-    match received {
-      0 => {
-        println!("exit command received");
-        process::exit(0x0);
-      }
-      _ => println!("unknown command '{}' received", received),
-    }
-  }
+//  println!("Listing on channel...");
+//
+//  for received in rx {
+//    println!("Got: {}", received);
+//
+//    match received {
+//      0 => {
+//        println!("exit command received");
+//        process::exit(0x0);
+//      }
+//      _ => println!("unknown command '{}' received", received),
+//    }
+//  }
 }
