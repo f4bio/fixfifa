@@ -1,6 +1,5 @@
 use ini::Ini;
 use pickledb::{PickleDb, PickleDbDumpPolicy, SerializationMethod};
-use std::env;
 use std::fs;
 use std::path::{Path, PathBuf};
 
@@ -109,7 +108,7 @@ impl Settings {
       PickleDbDumpPolicy::DumpUponRequest,
       SerializationMethod::Json,
     )
-    .unwrap();
+      .unwrap();
 
     Settings {
       alt_tab: db.get::<bool>("alt_tab").unwrap(),
@@ -127,7 +126,7 @@ impl Settings {
       PickleDbDumpPolicy::DumpUponRequest,
       SerializationMethod::Json,
     )
-    .unwrap();
+      .unwrap();
 
     db.get::<bool>(key).unwrap()
   }
@@ -138,7 +137,7 @@ impl Settings {
       PickleDbDumpPolicy::DumpUponRequest,
       SerializationMethod::Json,
     )
-    .unwrap();
+      .unwrap();
 
     db.set("alt_tab", &settings.alt_tab).unwrap();
     db.set("blacklist", &settings.blacklist).unwrap();
@@ -154,7 +153,7 @@ impl Settings {
       PickleDbDumpPolicy::DumpUponRequest,
       SerializationMethod::Json,
     )
-    .unwrap();
+      .unwrap();
 
     db.set::<bool>(key, &value).unwrap()
   }
@@ -171,8 +170,8 @@ impl Settings {
     if settings.skip_launcher {
       let mut _config: Ini = Settings::load_config_ini();
       let auto_launch: String = match settings.skip_launcher {
-        (true) => String::from("1"),
-        (false) => String::from("0"),
+        true => String::from("1"),
+        false => String::from("0"),
       };
       _config.set_to(
         Some("__General__"),
@@ -186,8 +185,8 @@ impl Settings {
     if settings.skip_language_selection {
       let mut _locale: Ini = Settings::load_locale_ini();
       let use_language_select: String = match settings.skip_language_selection {
-        (true) => String::from("0"),
-        (false) => String::from("1"),
+        true => String::from("0"),
+        false => String::from("1"),
       };
       _locale.set_to(
         Some("LOCALE"),

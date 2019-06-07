@@ -8,13 +8,14 @@ extern crate fixfifa_common;
 mod injector;
 
 fn main() {
-  log4rs::init_file("log4rs.yaml", Default::default()).unwrap();
+  log4rs::init_file("config\\log4rs.yml", Default::default()).unwrap();
 
   // get absolute path
   let dll_path = injector::absolute_path("target\\debug\\fixfifa.dll");
 
   //  attach to process
-  match injector::Process::by_name("FIFA19.exe") {
+//  match injector::Process::by_name("FIFA19.exe") {
+  match injector::Process::by_name("cmd.exe") {
     process => {
       // inject dll (DLLMain called)
       process.load_dll(dll_path.to_str().unwrap());

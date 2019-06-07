@@ -40,7 +40,7 @@ static mut GAME_STATE: Option<State> = None;
 pub extern "system" fn DllMain(
   hInstDLL: HMODULE,
   fdwReason: DWORD,
-  lpvReserved: LPVOID,
+  _lpvReserved: LPVOID,
 ) -> BOOL {
   match fdwReason {
     DLL_PROCESS_ATTACH => {

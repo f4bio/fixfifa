@@ -1,12 +1,12 @@
 {
   "author": "Fabio Tea <iam@f4b.io> [https://iam.f4b.io]",
-  "name": "fixfifa-ui",
+  "name": "fixfifa_ui",
   "version": "0.1.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/f4bio/fixfifa.git"
   },
-  "license": "(MIT OR Apache-2.0)",
+  "license": "../LICENSE",
   "scripts": {
     "build": "npx webpack --mode development --config ./webpack.config.js",
     "clean": "npx trash ./node_modules/ && npx trash ./dist/ && npx trash ./pkg/ && cargo clean",

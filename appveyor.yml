@@ -1,5 +1,4 @@
 environment:
-
   # At the time this was added AppVeyor was having troubles with checking
   # revocation of SSL certificates of sites like static.rust-lang.org and what
   # we think is crates.io. The libcurl HTTP client by default checks for

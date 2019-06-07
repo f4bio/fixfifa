@@ -1,0 +1,36 @@
+{
+  "version_name": "0.1.0",
+  "version_code": 10,
+  "blacklists": {
+    "players": [
+      {
+        "name": "Toowax94"
+      },
+      {
+        "name": "Metorboat"
+      }
+    ],
+    "clubs": [
+      {
+        "id": 29227,
+        "name": "Atletico Squad",
+        "abbr": "AS"
+      },
+      {
+        "id": 24154,
+        "name": "Fecking Pirates",
+        "abbr": "FEK"
+      },
+      {
+        "id": 24249,
+        "name": "Bazinga",
+        "abbr": "BAZ"
+      },
+      {
+        "id": 29322,
+        "name": "Atletico Squad",
+        "abbr": "AS"
+      }
+    ]
+  }
+}

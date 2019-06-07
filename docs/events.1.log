@@ -1,0 +1,169 @@
+dll_init!
+1418D7EA9: 1 bytes
+1418D7EAA: 4 bytes
+1418D8115: 24 bytes
+1418D812D: 8 bytes
+1418D8135: 8 bytes
+1418D813D: 2 bytes
+1418D813F: 24 bytes
+1418D8157: 5 bytes
+1418D815C: 1 bytes
+1418D815D: 4 bytes
+1418D7E97
+1418D8115
+1418D7EA9
+1418D7EAE
+extern init call
+loaded global data! (version: "\"0.1.0\"")
+loaded bad club: "[{\"id\":29227,\"name\":\"Atletico Squad\",\"abbr\":\"AS\"},{\"id\":24154,\"name\":\"Fecking Pirates\",\"abbr\":\"FEK\"},{\"id\":24249,\"name\":\"Bazinga\",\"abbr\":\"BAZ\"},{\"id\":29322,\"name\":\"Atletico Squad\",\"abbr\":\"AS\"}]"
+got event: EVENT_PREGAME_SESSION_ATTRIBUTE_CHANGED / Q=30:sopsaare
+dont know what to do with event named 'EVENT_PREGAME_SESSION_ATTRIBUTE_CHANGED' with data 'Q=30:sopsaare'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / P=11;USER_NAME=sopsaare:sopsaare
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'P=11;USER_NAME=sopsaare:sopsaare'
+got event: EVENT_PREGAME_GROUP_FOR_PLAYER_CHANGED / _GI=0;USER_NAME=sopsaare:sopsaare
+dont know what to do with event named 'EVENT_PREGAME_GROUP_FOR_PLAYER_CHANGED' with data '_GI=0;USER_NAME=sopsaare:sopsaare'
+got event: EVENT_PREGAME_GROUP_ATTRIBUTE_CHANGED / I_0=53589;O_0=Ma;N_0=Martit 3000;Z_0=1933:sopsaare
+got event: EVENT_PREGAME_GROUP_ATTRIBUTE_CHANGED / T_0=1933:sopsaare
+got event: EVENT_PREGAME_GROUP_ATTRIBUTE_CHANGED / J_0=31670272:sopsaare
+got event: EVENT_PREGAME_GROUP_ATTRIBUTE_CHANGED / C_0=sopsaare:sopsaare
+got event: EVENT_PREGAME_GROUP_ATTRIBUTE_CHANGED / C_0=sopsaare:sopsaare
+got event: EVENT_PREGAME_ARBITRATOR_IS_READY / _ARDY=1;USER_NAME=sopsaare:sopsaare
+dont know what to do with event named 'EVENT_PREGAME_ARBITRATOR_IS_READY' with data '_ARDY=1;USER_NAME=sopsaare:sopsaare'
+got event: EVENT_PREGAME_SESSION_ATTRIBUTE_CHANGED / Q=29:sopsaare
+dont know what to do with event named 'EVENT_PREGAME_SESSION_ATTRIBUTE_CHANGED' with data 'Q=29:sopsaare'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / P=8;USER_NAME=Typooni:Typooni
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'P=8;USER_NAME=Typooni:Typooni'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / P=10;USER_NAME=Peltiii:Peltiii
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'P=10;USER_NAME=Peltiii:Peltiii'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / P=4;USER_NAME=19AntiCampeR89:19AntiCampeR89
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'P=4;USER_NAME=19AntiCampeR89:19AntiCampeR89'
+got event: EVENT_PREGAME_GROUP_FOR_PLAYER_CHANGED / _GI=0;USER_NAME=Typooni:sopsaare
+dont know what to do with event named 'EVENT_PREGAME_GROUP_FOR_PLAYER_CHANGED' with data '_GI=0;USER_NAME=Typooni:sopsaare'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / P=7;USER_NAME=BarTolmai66:BarTolmai66
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'P=7;USER_NAME=BarTolmai66:BarTolmai66'
+got event: EVENT_PREGAME_GROUP_FOR_PLAYER_CHANGED / _GI=0;USER_NAME=Peltiii:sopsaare
+dont know what to do with event named 'EVENT_PREGAME_GROUP_FOR_PLAYER_CHANGED' with data '_GI=0;USER_NAME=Peltiii:sopsaare'
+got event: EVENT_PREGAME_GROUP_FOR_PLAYER_CHANGED / _GI=1;USER_NAME=19AntiCampeR89:sopsaare
+dont know what to do with event named 'EVENT_PREGAME_GROUP_FOR_PLAYER_CHANGED' with data '_GI=1;USER_NAME=19AntiCampeR89:sopsaare'
+got event: EVENT_PREGAME_GROUP_FOR_PLAYER_CHANGED / _GI=1;USER_NAME=Teeee1102:sopsaare
+dont know what to do with event named 'EVENT_PREGAME_GROUP_FOR_PLAYER_CHANGED' with data '_GI=1;USER_NAME=Teeee1102:sopsaare'
+got event: EVENT_PREGAME_GROUP_ATTRIBUTE_CHANGED / I_1=25681;O_1=LEV;N_1=glhfc;Z_1=99070109:19AntiCampeR89
+got event: EVENT_PREGAME_GROUP_FOR_PLAYER_CHANGED / _GI=0;USER_NAME=BarTolmai66:sopsaare
+dont know what to do with event named 'EVENT_PREGAME_GROUP_FOR_PLAYER_CHANGED' with data '_GI=0;USER_NAME=BarTolmai66:sopsaare'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / R=1;USER_NAME=sopsaare:sopsaare
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'R=1;USER_NAME=sopsaare:sopsaare'
+got event: EVENT_PREGAME_GROUP_ATTRIBUTE_CHANGED / T_1=1853:sopsaare
+got event: EVENT_PREGAME_GROUP_ATTRIBUTE_CHANGED / J_1=7509:sopsaare
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / R=1;USER_NAME=19AntiCampeR89:sopsaare
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'R=1;USER_NAME=19AntiCampeR89:sopsaare'
+got event: EVENT_PREGAME_GROUP_ATTRIBUTE_CHANGED / C_1=Teeee1102:sopsaare
+got event: EVENT_PREGAME_GROUP_ATTRIBUTE_CHANGED / C_1=Teeee1102:sopsaare
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / R=1;USER_NAME=Teeee1102:sopsaare
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'R=1;USER_NAME=Teeee1102:sopsaare'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / R=1;USER_NAME=Typooni:sopsaare
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'R=1;USER_NAME=Typooni:sopsaare'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / R=1;USER_NAME=BarTolmai66:sopsaare
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'R=1;USER_NAME=BarTolmai66:sopsaare'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / R=1;USER_NAME=Peltiii:sopsaare
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'R=1;USER_NAME=Peltiii:sopsaare'
+got event: EVENT_PREGAME_SESSION_ATTRIBUTE_CHANGED / Q=-1:sopsaare
+dont know what to do with event named 'EVENT_PREGAME_SESSION_ATTRIBUTE_CHANGED' with data 'Q=-1:sopsaare'
+got event: EVENT_PREGAME_SESSION_ATTRIBUTE_CHANGED / A=USER_READY:sopsaare
+dont know what to do with event named 'EVENT_PREGAME_SESSION_ATTRIBUTE_CHANGED' with data 'A=USER_READY:sopsaare'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / R=0;USER_NAME=sopsaare:sopsaare
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'R=0;USER_NAME=sopsaare:sopsaare'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / R=0;USER_NAME=Typooni:sopsaare
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'R=0;USER_NAME=Typooni:sopsaare'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / R=0;USER_NAME=Peltiii:sopsaare
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'R=0;USER_NAME=Peltiii:sopsaare'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / R=0;USER_NAME=BarTolmai66:sopsaare
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'R=0;USER_NAME=BarTolmai66:sopsaare'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / R=0;USER_NAME=Teeee1102:sopsaare
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'R=0;USER_NAME=Teeee1102:sopsaare'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / B=0;USER_NAME=19AntiCampeR89:19AntiCampeR89
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'B=0;USER_NAME=19AntiCampeR89:19AntiCampeR89'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / O=4;USER_NAME=19AntiCampeR89:19AntiCampeR89
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'O=4;USER_NAME=19AntiCampeR89:19AntiCampeR89'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / B=1;USER_NAME=Typooni:Typooni
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'B=1;USER_NAME=Typooni:Typooni'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / O=0;USER_NAME=Typooni:Typooni
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'O=0;USER_NAME=Typooni:Typooni'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / B=2;USER_NAME=Peltiii:Peltiii
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'B=2;USER_NAME=Peltiii:Peltiii'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / O=0;USER_NAME=Peltiii:Peltiii
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'O=0;USER_NAME=Peltiii:Peltiii'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / B=3;USER_NAME=BarTolmai66:BarTolmai66
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'B=3;USER_NAME=BarTolmai66:BarTolmai66'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / R=0;USER_NAME=19AntiCampeR89:sopsaare
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'R=0;USER_NAME=19AntiCampeR89:sopsaare'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / B=0;USER_NAME=sopsaare:sopsaare
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'B=0;USER_NAME=sopsaare:sopsaare'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / O=0;USER_NAME=sopsaare:sopsaare
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'O=0;USER_NAME=sopsaare:sopsaare'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / O=0;USER_NAME=BarTolmai66:BarTolmai66
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'O=0;USER_NAME=BarTolmai66:BarTolmai66'
+got event: EVENT_PREGAME_SESSION_ATTRIBUTE_CHANGED / Q=30:skiiizymoans
+dont know what to do with event named 'EVENT_PREGAME_SESSION_ATTRIBUTE_CHANGED' with data 'Q=30:skiiizymoans'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / P=11;USER_NAME=skiiizymoans:skiiizymoans
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'P=11;USER_NAME=skiiizymoans:skiiizymoans'
+got event: EVENT_PREGAME_GROUP_FOR_PLAYER_CHANGED / _GI=0;USER_NAME=skiiizymoans:skiiizymoans
+dont know what to do with event named 'EVENT_PREGAME_GROUP_FOR_PLAYER_CHANGED' with data '_GI=0;USER_NAME=skiiizymoans:skiiizymoans'
+got event: EVENT_PREGAME_GROUP_ATTRIBUTE_CHANGED / I_0=44199;O_0=BAT;N_0=FC Batatoot;Z_0=99060104:skiiizymoans
+got event: EVENT_PREGAME_GROUP_ATTRIBUTE_CHANGED / T_0=241:skiiizymoans
+got event: EVENT_PREGAME_GROUP_ATTRIBUTE_CHANGED / J_0=7622:skiiizymoans
+got event: EVENT_PREGAME_GROUP_ATTRIBUTE_CHANGED / C_0=skiiizymoans:skiiizymoans
+got event: EVENT_PREGAME_GROUP_ATTRIBUTE_CHANGED / C_0=skiiizymoans:skiiizymoans
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / P=7;USER_NAME=19AntiCampeR89:19AntiCampeR89
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'P=7;USER_NAME=19AntiCampeR89:19AntiCampeR89'
+got event: EVENT_PREGAME_GROUP_FOR_PLAYER_CHANGED / _GI=1;USER_NAME=Teeee1102:skiiizymoans
+dont know what to do with event named 'EVENT_PREGAME_GROUP_FOR_PLAYER_CHANGED' with data '_GI=1;USER_NAME=Teeee1102:skiiizymoans'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / P=8;USER_NAME=Krqyd:Krqyd
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'P=8;USER_NAME=Krqyd:Krqyd'
+got event: EVENT_PREGAME_GROUP_FOR_PLAYER_CHANGED / _GI=1;USER_NAME=19AntiCampeR89:skiiizymoans
+dont know what to do with event named 'EVENT_PREGAME_GROUP_FOR_PLAYER_CHANGED' with data '_GI=1;USER_NAME=19AntiCampeR89:skiiizymoans'
+got event: EVENT_PREGAME_GROUP_FOR_PLAYER_CHANGED / _GI=0;USER_NAME=Krqyd:skiiizymoans
+dont know what to do with event named 'EVENT_PREGAME_GROUP_FOR_PLAYER_CHANGED' with data '_GI=0;USER_NAME=Krqyd:skiiizymoans'
+got event: EVENT_PREGAME_GROUP_ATTRIBUTE_CHANGED / T_1=1853:skiiizymoans
+got event: EVENT_PREGAME_GROUP_ATTRIBUTE_CHANGED / J_1=7509:skiiizymoans
+got event: EVENT_PREGAME_GROUP_ATTRIBUTE_CHANGED / C_1=Teeee1102:skiiizymoans
+got event: EVENT_PREGAME_GROUP_ATTRIBUTE_CHANGED / C_1=Teeee1102:skiiizymoans
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / R=1;USER_NAME=Teeee1102:skiiizymoans
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'R=1;USER_NAME=Teeee1102:skiiizymoans'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / R=1;USER_NAME=skiiizymoans:skiiizymoans
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'R=1;USER_NAME=skiiizymoans:skiiizymoans'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / R=1;USER_NAME=19AntiCampeR89:skiiizymoans
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'R=1;USER_NAME=19AntiCampeR89:skiiizymoans'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / R=1;USER_NAME=Krqyd:skiiizymoans
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'R=1;USER_NAME=Krqyd:skiiizymoans'
+got event: EVENT_PREGAME_SESSION_ATTRIBUTE_CHANGED / Q=-1:skiiizymoans
+dont know what to do with event named 'EVENT_PREGAME_SESSION_ATTRIBUTE_CHANGED' with data 'Q=-1:skiiizymoans'
+got event: EVENT_PREGAME_SESSION_ATTRIBUTE_CHANGED / A=USER_READY:skiiizymoans
+dont know what to do with event named 'EVENT_PREGAME_SESSION_ATTRIBUTE_CHANGED' with data 'A=USER_READY:skiiizymoans'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / R=0;USER_NAME=skiiizymoans:skiiizymoans
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'R=0;USER_NAME=skiiizymoans:skiiizymoans'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / R=0;USER_NAME=Krqyd:skiiizymoans
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'R=0;USER_NAME=Krqyd:skiiizymoans'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / R=0;USER_NAME=Teeee1102:skiiizymoans
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'R=0;USER_NAME=Teeee1102:skiiizymoans'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / R=0;USER_NAME=19AntiCampeR89:skiiizymoans
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'R=0;USER_NAME=19AntiCampeR89:skiiizymoans'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / B=0;USER_NAME=skiiizymoans:skiiizymoans
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'B=0;USER_NAME=skiiizymoans:skiiizymoans'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / O=0;USER_NAME=skiiizymoans:skiiizymoans
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'O=0;USER_NAME=skiiizymoans:skiiizymoans'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / B=1;USER_NAME=19AntiCampeR89:19AntiCampeR89
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'B=1;USER_NAME=19AntiCampeR89:19AntiCampeR89'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / O=4;USER_NAME=19AntiCampeR89:19AntiCampeR89
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'O=4;USER_NAME=19AntiCampeR89:19AntiCampeR89'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / B=1;USER_NAME=Krqyd:Krqyd
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'B=1;USER_NAME=Krqyd:Krqyd'
+got event: EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED / O=0;USER_NAME=Krqyd:Krqyd
+dont know what to do with event named 'EVENT_PREGAME_PLAYER_ATTRIBUTE_CHANGED' with data 'O=0;USER_NAME=Krqyd:Krqyd'
+got event: EVENT_PREGAME_ARBITRATOR_IS_READY / _ARDY=1;USER_NAME=skiiizymoans:skiiizymoans
+dont know what to do with event named 'EVENT_PREGAME_ARBITRATOR_IS_READY' with data '_ARDY=1;USER_NAME=skiiizymoans:skiiizymoans'
+got event: EVENT_PREGAME_SESSION_ATTRIBUTE_CHANGED / Q=30:skiiizymoans
+dont know what to do with event named 'EVENT_PREGAME_SESSION_ATTRIBUTE_CHANGED' with data 'Q=30:skiiizymoans'
+got event: EVENT_PREGAME_SESSION_ATTRIBUTE_CHANGED / Q=29:skiiizymoans
+dont know what to do with event named 'EVENT_PREGAME_SESSION_ATTRIBUTE_CHANGED' with data 'Q=29:skiiizymoans'
+got event: EVENT_PREGAME_SESSION_ATTRIBUTE_CHANGED / Q=-1:skiiizymoans
+dont know what to do with event named 'EVENT_PREGAME_SESSION_ATTRIBUTE_CHANGED' with data 'Q=-1:skiiizymoans'

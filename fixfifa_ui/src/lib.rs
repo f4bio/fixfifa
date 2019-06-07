@@ -8,7 +8,7 @@ extern crate fixfifa_common;
 extern crate serde_derive;
 
 use rocket::request::Form;
-use rocket::request::{FlashMessage, LenientForm};
+use rocket::request::{FlashMessage};
 use rocket::response::{Flash, Redirect};
 use rocket::{Request, State};
 use rocket_contrib::serve::StaticFiles;
