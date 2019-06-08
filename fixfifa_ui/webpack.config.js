@@ -8,7 +8,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
   entry: "./index.js",
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, '..', 'dist'),
     filename: "bundle.js"
   },
   module: {
@@ -53,12 +53,12 @@ module.exports = {
     }),
     new FaviconsWebpackPlugin(path.resolve(__dirname, "..", "assets", "logo.png")),
     new HtmlWebpackPlugin({
-      template: "./templates/base.html.tera",
+      template: "../templates/base.html.tera",
       filename: "base.html.tera"
     }),
     new CopyWebpackPlugin([
-      {from: "./templates/index.html.tera", to: ""},
-      {from: "./templates/error/*.tera", to: "error"}
+      {from: "../templates/index.html.tera", to: ""},
+      {from: "../templates/error/*.tera", to: "error"}
     ]),
     new webpack.ProvidePlugin({
       TextDecoder: ["text-encoding", "TextDecoder"],
