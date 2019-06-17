@@ -19,22 +19,20 @@ fn main() {
     log4rs::init_file(log_config_path.to_str().unwrap(), Default::default()).unwrap();
 
     println!("using dll: '{}'", lib_dll_path.canonicalize().unwrap().to_str().unwrap());
-    // get absolute path
-    let dll_path = injector::absolute_path(lib_dll_path.to_str().unwrap());
 
-    fixfifa_ui::start_ui();
+    //    fixfifa_ui::start_ui();
 
     //  attach to process
-    //  match injector::Process::by_name("FIFA19.exe") {
-    //    process => {
-    //      // inject dll (DLLMain called)
-    //      process.load_dll(dll_path.to_str().unwrap());
-    //
-    //      // call additional init fn
-    //      process.exec("fixfifa.dll", "init");
-    //
-    //      // close process handle
-    //      process.close();
-    //    }
-    //  }
+    match injector::Process::by_name("FIFA19.exe") {
+        process => {
+            // inject dll (DLLMain called)
+            process.load_dll(lib_dll_path.canonicalize().unwrap().to_str().unwrap());
+
+            // call additional init fn
+            process.exec("fixfifa.dll", "init");
+
+            // close process handle
+            process.close();
+        }
+    }
 }

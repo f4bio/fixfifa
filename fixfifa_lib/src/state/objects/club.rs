@@ -6,31 +6,27 @@ use std::string::ToString;
 
 #[derive(Deserialize, Serialize)]
 pub struct Club {
-  id: i32,
-  name: String,
-  abbr: String,
-  players: Vec<Player>,
-  captain: Player,
+    id: i32,
+    name: String,
+    abbr: String,
+    players: Vec<Player>,
+    captain: Player,
 }
 
 impl Display for Club {
-  fn fmt(&self, c: &mut Formatter) -> fmt::Result {
-    write!(
-      c,
-      "Club: id={}, name={}, abbr={}",
-      self.id, self.name, self.abbr
-    )
-  }
+    fn fmt(&self, c: &mut Formatter) -> fmt::Result {
+        write!(c, "Club: id={}, name={}, abbr={}", self.id, self.name, self.abbr)
+    }
 }
 
 impl Club {
-  pub fn new() -> Self {
-    Club {
-      id: -1,
-      name: "".to_string(),
-      abbr: "".to_string(),
-      players: vec![],
-      captain: Player::new(),
+    pub fn new() -> Self {
+        Club {
+            id: -1,
+            name: "".to_string(),
+            abbr: "".to_string(),
+            players: vec![],
+            captain: Player::new(),
+        }
     }
-  }
 }
