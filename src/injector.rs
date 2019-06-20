@@ -4,7 +4,14 @@ use std::mem::size_of;
 use std::os::raw::c_char;
 use std::path::{Path, PathBuf};
 
+use std::fs::File;
+use std::io::ErrorKind;
+use std::sync::mpsc::channel;
+use std::time::{Duration, Instant};
 use sysinfo::{ProcessExt, SystemExt};
+use tokio::prelude::future::Future;
+use tokio_timer::clock::Now;
+use tokio_timer::{Delay, Interval};
 use winapi::shared::basetsd::SIZE_T;
 use winapi::shared::minwindef::{
     BOOL, BYTE, DWORD, FALSE, HMODULE, LPARAM, LPCVOID, LPDWORD, LPVOID,
@@ -43,6 +50,20 @@ pub struct Process {
 impl Process {
     pub fn current() -> Self {
         return Process { handle: unsafe { GetCurrentProcess() } };
+    }
+
+    pub fn wait_for(name: &str) -> Self {
+        let when = Instant::now() + Duration::from_millis(100);
+        let task = Delay::new(when)
+            .and_then(|_| {
+                println!("Hello world!");
+                Ok(())
+            })
+            .map_err(|e| panic!("delay errored; err={:?}", e));
+
+        tokio::run(task);
+
+        Process::by_name(name)
     }
 
     pub fn by_name(name: &str) -> Self {

@@ -7,18 +7,17 @@ license = "./LICENSE"
 readme = "README.md"
 repository = "https://github.com/f4bio/fixfifa"
 documentation = "https://github.com/f4bio/fixfifa"
-homepage = "https://crates.io/crates/rand"
+homepage = "https://github.com/f4bio/fixfifa"
 description = """
-Random number generators and other randomness functionality.
+trying to #fixfifa
 """
-keywords = ["random", "rng"]
-categories = ["algorithms", "no-std"]
+keywords = ["fifa", "memory-manipulation"]
 exclude = ["/utils/*", "/.travis.yml", "/appveyor.yml", ".gitignore"]
 autobenches = true
 
 [badges]
-travis-ci = { repository = "rust-random/rand" }
-appveyor = { repository = "rust-random/rand" }
+travis-ci = { repository = "f4bio/fixfifa" }
+appveyor = { repository = "f4bio/fixfifa" }
 
 [workspace]
 members = [
@@ -35,8 +34,8 @@ log = "0.4.6"
 log4rs = "0.8.3"
 include_dir = "0.2.1"
 sysinfo = "0.8.5"
-flame = "0.2.2"
-flamer = "0.3"
+tokio = "0.1.21"
+tokio-timer = "0.2.11"
 
 [target.'cfg(windows)'.dependencies]
 winapi = { version = "0.3.7", features = ["commctrl", "consoleapi", "std", "memoryapi", "psapi", "wow64apiset", "wincon", "winuser", "windef", "winnt"] }

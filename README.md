@@ -65,6 +65,15 @@ or:
 
 ## Technical Details
 
+### Fetch "official" ProClubs Stats
+
+`$ curl https://www.easports.com/iframe/fifa17proclubs/api/platforms/PC/clubs/822/membersComplete`
+`$ curl https://www.easports.com/iframe/fifa17proclubs/api/platforms/PC/clubs/822/stats`
+`$ curl https://www.easports.com/iframe/fifa17proclubs/api/platforms/PC/clubs/822/matches`
+`$ curl https://www.easports.com/iframe/fifa17proclubs/api/platforms/PC/seasonRankLeaderboard`
+`$ curl https://www.easports.com/iframe/fifa17proclubs/api/platforms/PC/clubRankLeaderboard`
+
+
 ### Hooking / Hacking / Memory manipulation
 * event to listen to `EVENT_PREGAME_GROUP_ATTRIBUTE_CHANGED`
 * in-memory
@@ -167,7 +176,7 @@ Keep in mind: We both have full time jobs, so there is a big maybe behind all fo
 * expand to other game modes
 * maybe implement some style of server-client model
   * don't rely on lists
-  * master (i.e. team captain) tells everybody: "get outta here"
+  * master (i.e. team captain) tells everybody: "get out"
 * check out different ways to disconnect
 
 ## Contribute

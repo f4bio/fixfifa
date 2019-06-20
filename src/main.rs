@@ -4,6 +4,7 @@ extern crate fixfifa_common;
 extern crate fixfifa_ui;
 extern crate log4rs;
 extern crate sysinfo;
+extern crate tokio;
 extern crate winapi;
 
 use std::path::{Path, PathBuf};
@@ -23,7 +24,7 @@ fn main() {
     //    fixfifa_ui::start_ui();
 
     //  attach to process
-    match injector::Process::by_name("FIFA19.exe") {
+    match injector::Process::wait_for("FIFA19.exe") {
         process => {
             // inject dll (DLLMain called)
             process.load_dll(lib_dll_path.canonicalize().unwrap().to_str().unwrap());
