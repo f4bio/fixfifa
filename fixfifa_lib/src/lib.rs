@@ -2,11 +2,14 @@
 #[macro_use]
 extern crate log;
 extern crate log4rs;
+extern crate fixfifa_common;
 
 use crate::state::State;
 use std::ffi::CStr;
 use std::os::raw::c_char;
 use winapi::shared::minwindef::{BOOL, DWORD, HMODULE, LPARAM, LPVOID, TRUE};
+use fixfifa_common::cors::{RemoteThread, ParamWrapper};
+use fixfifa_common::settings::{Settings, Settin};
 
 mod fifa19;
 mod pattern;
@@ -62,10 +65,10 @@ fn dll_init() -> process::Result<BOOL> {
     //  msgbox::create("Title", "Process attached", IconType::INFO);
     fifa19::enable_console();
     println!("dll_init!");
-    let fifa19_process = process::Process::new();
-    fifa19::search_leave_game(&fifa19_process);
-    fifa19::enable_event_hook(&fifa19_process, on_event as LPARAM);
-    fifa19::disable_quit_on_loose_focus(&fifa19_process);
+//    let fifa19_process = process::Process::new();
+//    fifa19::search_leave_game(&fifa19_process);
+//    fifa19::enable_event_hook(&fifa19_process, on_event as LPARAM);
+//    fifa19::disable_quit_on_loose_focus(&fifa19_process);
 
     //  println!("lib {:X}", on_event as LPARAM);
     // get_list();
@@ -140,4 +143,22 @@ pub extern "C" fn init() {
     //      serde_json::to_string(&GLOBAL_DATA).unwrap()
     //    );
     //  }
+}
+
+#[no_mangle]
+#[allow(non_snake_case)]
+pub extern "C" fn settings(wrapper: &ParamWrapper) {
+  println!("{:?}", wrapper);
+
+  let remote_thread = RemoteThread::new(wrapper);
+  let mut settings = remote_thread.read_param::<Settings>();
+  println!("{:?}", settings);
+//  println!("{} {} {} {}", settings.alt_tab, settings.blacklist, settings.skip_launcher, settings.skip_language_selection);
+
+  settings.alt_tab = !settings.alt_tab;
+  settings.blacklist = !settings.blacklist;
+  settings.skip_language_selection = !settings.skip_language_selection;
+  settings.skip_launcher = !settings.skip_launcher;
+
+  remote_thread.write_result(&settings);
 }

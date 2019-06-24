@@ -11,13 +11,21 @@ pub struct Setting<T> {
     pub value: T,
 }
 
-#[derive(Serialize, Deserialize, FromForm, Debug)]
+#[derive(Serialize, Deserialize, FromForm, Copy, Clone, Debug)]
 pub struct Settings {
     pub game_dir: String,
     pub alt_tab: bool,
     pub blacklist: bool,
     pub skip_launcher: bool,
     pub skip_language_selection: bool,
+}
+
+#[derive(Copy, Clone, Debug)]
+pub struct Settin {
+    pub alt_tab: i32,
+    pub blacklist: i32,
+    pub skip_launcher: i32,
+    pub skip_language_selection: i32,
 }
 
 const DEBUG_MODE: &'static bool = &false;
