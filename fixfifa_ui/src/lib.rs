@@ -19,13 +19,10 @@ use std::path::Path;
 use std::process;
 use std::process::Command;
 use std::ptr::null;
-use std::sync::atomic::{AtomicBool, Ordering};
-use std::sync::mpsc::{Receiver, Sender};
-use std::sync::{mpsc, Arc, Weak};
+use std::sync::mpsc;
+use std::sync::mpsc::Sender;
 use std::thread;
 use std::thread::JoinHandle;
-use std::time::Duration;
-use systray::Application;
 
 // TODO: use following statics instead of hardcoded paths
 // Path::new("/etc").join("passwd")
@@ -48,16 +45,17 @@ impl<'a, 'b> Context<'a, 'b> {
 
 #[post("/settings", data = "<settings_form>")]
 fn set_all_settings(settings_form: Form<Settings>) -> Flash<Redirect> {
-    let settings = settings_form.into_inner();
+    let new_settings = settings_form.into_inner();
     let _updates = Settings {
-        alt_tab: settings.alt_tab,
-        blacklist: settings.blacklist,
-        skip_launcher: settings.skip_launcher,
-        skip_language_selection: settings.skip_language_selection,
+        game_dir: new_settings.game_dir,
+        alt_tab: new_settings.alt_tab,
+        blacklist: new_settings.blacklist,
+        skip_launcher: new_settings.skip_launcher,
+        skip_language_selection: new_settings.skip_language_selection,
     };
 
     Settings::set_all(_updates);
-    return Flash::success(Redirect::to("/"), format!("settings applied: '{:?}'.", settings));
+    return Flash::success(Redirect::to("/"), format!("settings applied..."));
 }
 
 #[post("/setting", data = "<setting_form>")]
@@ -74,11 +72,6 @@ fn set_single_setting(setting_form: Form<Setting<bool>>) -> Flash<Redirect> {
 #[get("/settings")]
 fn get_all_settings() -> Template {
     Template::render("index", &Settings::get_all())
-}
-
-#[get("/setting/<key>")]
-fn get_single_setting(key: String) -> Template {
-    Template::render("index", &Settings::get_single(&key))
 }
 
 #[get("/")]
@@ -146,13 +139,7 @@ pub fn start_web() -> JoinHandle<()> {
 
     return thread::spawn(move || {
         rocket::ignite()
-            .mount("/", routes![
-                index,
-                set_all_settings,
-                set_single_setting,
-                get_all_settings,
-                get_single_setting
-            ])
+            .mount("/", routes![index, set_all_settings, set_single_setting, get_all_settings])
             .mount("/", StaticFiles::from("dist"))
             .attach(Template::fairing())
             .manage(Settings::new())

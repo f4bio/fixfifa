@@ -89,8 +89,8 @@ fn check_club(event_data: String) {
 }
 
 fn check_arbitrator(event_data: String) {
-    let parts: Vec<&str> = event_data.split_terminator(';').collect();
-    let mut parts_iter = parts.into_iter();
+    //    let parts: Vec<&str> = event_data.split_terminator(';').collect();
+    //    let mut parts_iter = parts.into_iter();
 
     println!("parsing event: {}", event_data);
 }

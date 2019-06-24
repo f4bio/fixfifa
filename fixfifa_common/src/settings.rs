@@ -1,5 +1,7 @@
 use ini::Ini;
 use pickledb::{PickleDb, PickleDbDumpPolicy, SerializationMethod};
+use sled::Db;
+use std::env;
 use std::fs;
 use std::path::{Path, PathBuf};
 
@@ -11,6 +13,7 @@ pub struct Setting<T> {
 
 #[derive(Serialize, Deserialize, FromForm, Debug)]
 pub struct Settings {
+    pub game_dir: String,
     pub alt_tab: bool,
     pub blacklist: bool,
     pub skip_launcher: bool,
@@ -18,24 +21,24 @@ pub struct Settings {
 }
 
 const DEBUG_MODE: &'static bool = &false;
-const DB_NAME: &'static str = "config.db";
+const DB_NAME: &'static str = "config.pickle.db";
 // TODO: get from somewhere else
-const ORIGIN_GAMES_DIRECTORY: &'static str = "D:\\Origin Games";
+// const ORIGIN_GAMES_DIRECTORY: &'static str = "D:\\Origin Games";
 
 impl Settings {
     fn get_config_ini_path() -> PathBuf {
-        return Path::new(ORIGIN_GAMES_DIRECTORY)
+        return Path::new(&Settings::game_dir())
             .join("FIFA 19")
             .join("FIFASetup")
             .join("config.ini");
     }
 
     fn get_locale_ini_path() -> PathBuf {
-        return Path::new(ORIGIN_GAMES_DIRECTORY).join("FIFA 19").join("Data").join("locale.ini");
+        return Path::new(&Settings::game_dir()).join("FIFA 19").join("Data").join("locale.ini");
     }
 
     fn get_locale_ini_bak_path() -> PathBuf {
-        return Path::new(ORIGIN_GAMES_DIRECTORY)
+        return Path::new(&Settings::game_dir())
             .join("FIFA 19")
             .join("Data")
             .join("locale.ini.bak");
@@ -66,9 +69,21 @@ impl Settings {
     }
 
     pub fn new() -> Settings {
+        let sledDb = Db::start_default("config.sled.db").unwrap();
         let mut db =
             PickleDb::new(DB_NAME, PickleDbDumpPolicy::DumpUponRequest, SerializationMethod::Json);
 
+        // TODO: find out how to do this "correct"
+        let game_dir: String = "D:\\Origin Games".to_string();
+        //        let game_dir: String = match env::var_os("PROGRAMFILES(X86)") {
+        //            Some(val) => Path::new(&val).join("Origin Games").to_str().unwrap().to_string(),
+        //            None => Path::new("C:")
+        //                .join("Program Files (x86)")
+        //                .join("Origin Games")
+        //                .to_str()
+        //                .unwrap()
+        //                .to_string(),
+        //        };
         let _config: Ini = Settings::load_config_ini();
         let _locale: Ini = Settings::load_locale_ini();
 
@@ -78,12 +93,14 @@ impl Settings {
         let skip_launcher: bool = auto_launch.eq("0");
         let skip_language_selection: bool = use_language_select.eq("0");
 
+        db.set("game_dir", &game_dir).unwrap();
         db.set("alt_tab", &true).unwrap();
         db.set("blacklist", &true).unwrap();
         db.set("skip_launcher", &skip_launcher).unwrap();
         db.set("skip_language_selection", &skip_language_selection).unwrap();
 
         Settings {
+            game_dir: db.get::<String>("game_dir").unwrap(),
             alt_tab: db.get::<bool>("alt_tab").unwrap(),
             blacklist: db.get::<bool>("blacklist").unwrap(),
             skip_launcher: db.get::<bool>("skip_launcher").unwrap(),
@@ -97,11 +114,52 @@ impl Settings {
                 .unwrap();
 
         Settings {
+            game_dir: db.get::<String>("game_dir").unwrap(),
             alt_tab: db.get::<bool>("alt_tab").unwrap(),
             blacklist: db.get::<bool>("blacklist").unwrap(),
             skip_launcher: db.get::<bool>("skip_launcher").unwrap(),
             skip_language_selection: db.get::<bool>("skip_language_selection").unwrap(),
         }
+    }
+
+    pub fn game_dir() -> String {
+        let db =
+            PickleDb::load(DB_NAME, PickleDbDumpPolicy::DumpUponRequest, SerializationMethod::Json)
+                .unwrap();
+
+        db.get::<String>("game_dir").unwrap()
+    }
+
+    pub fn alt_tab() -> bool {
+        let db =
+            PickleDb::load(DB_NAME, PickleDbDumpPolicy::DumpUponRequest, SerializationMethod::Json)
+                .unwrap();
+
+        db.get::<bool>("alt_tab").unwrap()
+    }
+
+    pub fn blacklist() -> bool {
+        let db =
+            PickleDb::load(DB_NAME, PickleDbDumpPolicy::DumpUponRequest, SerializationMethod::Json)
+                .unwrap();
+
+        db.get::<bool>("blacklist").unwrap()
+    }
+
+    pub fn skip_launcher() -> bool {
+        let db =
+            PickleDb::load(DB_NAME, PickleDbDumpPolicy::DumpUponRequest, SerializationMethod::Json)
+                .unwrap();
+
+        db.get::<bool>("skip_launcher").unwrap()
+    }
+
+    pub fn skip_language_selection() -> bool {
+        let db =
+            PickleDb::load(DB_NAME, PickleDbDumpPolicy::DumpUponRequest, SerializationMethod::Json)
+                .unwrap();
+
+        db.get::<bool>("skip_language_selection").unwrap()
     }
 
     pub fn get_single(key: &str) -> bool {
@@ -117,6 +175,7 @@ impl Settings {
             PickleDb::load(DB_NAME, PickleDbDumpPolicy::DumpUponRequest, SerializationMethod::Json)
                 .unwrap();
 
+        db.set("game_dir", &settings.game_dir).unwrap();
         db.set("alt_tab", &settings.alt_tab).unwrap();
         db.set("blacklist", &settings.blacklist).unwrap();
         db.set("skip_launcher", &settings.skip_launcher).unwrap();

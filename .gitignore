@@ -181,6 +181,7 @@ $RECYCLE.BIN/
 ### Project related ###
 /.tmp.delete.md
 /config.db
+/config.*.db
 /log/*
 /dist/
 

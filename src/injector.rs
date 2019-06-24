@@ -6,12 +6,11 @@ use std::path::{Path, PathBuf};
 
 use std::fs::File;
 use std::io::ErrorKind;
-use std::sync::mpsc::channel;
 use std::time::{Duration, Instant};
 use sysinfo::{ProcessExt, SystemExt};
 use tokio::prelude::future::Future;
 use tokio_timer::clock::Now;
-use tokio_timer::{Delay, Interval};
+use tokio_timer::Delay;
 use winapi::shared::basetsd::SIZE_T;
 use winapi::shared::minwindef::{
     BOOL, BYTE, DWORD, FALSE, HMODULE, LPARAM, LPCVOID, LPDWORD, LPVOID,
@@ -63,7 +62,7 @@ impl Process {
 
         tokio::run(task);
 
-        Process::by_name(name)
+        return Process::by_name(name);
     }
 
     pub fn by_name(name: &str) -> Self {
