@@ -33,7 +33,7 @@ fixfifa_common = { path = "fixfifa_common", version = "0.1.0" }
 log = "0.4.6"
 log4rs = "0.8.3"
 include_dir = "0.2.1"
-sysinfo = "0.8.5"
+sysinfo = "0.9.0"
 tokio = "0.1.21"
 tokio-timer = "0.2.11"
 

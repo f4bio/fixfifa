@@ -9,7 +9,7 @@ use std::ffi::CStr;
 use std::os::raw::c_char;
 use winapi::shared::minwindef::{BOOL, DWORD, HMODULE, LPARAM, LPVOID, TRUE};
 use fixfifa_common::cors::{RemoteThread, ParamWrapper};
-use fixfifa_common::settings::{Settings, Settin};
+use fixfifa_common::settings::Settings;
 
 mod fifa19;
 mod pattern;
@@ -148,17 +148,11 @@ pub extern "C" fn init() {
 #[no_mangle]
 #[allow(non_snake_case)]
 pub extern "C" fn settings(wrapper: &ParamWrapper) {
-  println!("{:?}", wrapper);
+//  println!("{:?}", wrapper);
 
   let remote_thread = RemoteThread::new(wrapper);
   let mut settings = remote_thread.read_param::<Settings>();
-  println!("{:?}", settings);
-//  println!("{} {} {} {}", settings.alt_tab, settings.blacklist, settings.skip_launcher, settings.skip_language_selection);
+//  println!("{:?}", settings);
 
-  settings.alt_tab = !settings.alt_tab;
-  settings.blacklist = !settings.blacklist;
-  settings.skip_language_selection = !settings.skip_language_selection;
-  settings.skip_launcher = !settings.skip_launcher;
-
-  remote_thread.write_result(&settings);
+  remote_thread.write_result(&true);
 }

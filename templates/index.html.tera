@@ -51,7 +51,6 @@
                             <!-- Accordions content -->
                             <ul>
                                 {% if settings %}
-                                    <li>game dir: {{ settings.game_dir }}</li>
                                     <li>alt tab: {{ settings.alt_tab }}</li>
                                     <li>blacklist: {{ settings.blacklist }}</li>
                                     <li>skip_launcher: {{ settings.skip_launcher }}</li>
@@ -62,18 +61,6 @@
                     </div>
                     <!-- form switch control -->
                     <form class="form-horizontal" action="/settings" method="post">
-                        <div class="form-group">
-                            <label class="form-file form-inline" for="game_dir-text">
-                                <input id="game_dir-text" type="text"
-                                        {% if settings.game_dir %} value="{{ settings.game_dir }}" {% else %}
-                                       value="false" {% endif %} name="game_dir" class="form-input"/>
-                                <i class="form-icon"></i> Game Dir Text
-                            </label>
-                            <label class="form-file" for="game_dir-file">
-                                <input type="file" id="game_dir-file" webkitdirectory mozdirectory msdirectory odirectory directory multiple/>
-                                <i class="form-icon"></i> Game Dir File
-                            </label>
-                        </div>
                         <div class="form-group">
                             <label class="form-switch" for="alt_tab">
                                 <input id="alt_tab" type="checkbox" {% if settings.alt_tab %} value="true"

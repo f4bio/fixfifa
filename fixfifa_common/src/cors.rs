@@ -18,11 +18,23 @@ use winapi::um::synchapi::WaitForSingleObject;
 use winapi::um::winbase::INFINITE;
 use std::fmt::Debug;
 use settings::Settings;
+use sysinfo::{ProcessExt, SystemExt};
 
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone, Copy)]
 pub struct ParamWrapper {
   pub ptr_param: LPARAM,
   pub ptr_result: LPARAM,
+}
+
+fn get_process_id(name: &str) -> Result<DWORD, &str> {
+  let mut system: sysinfo::System = sysinfo::System::new();
+  system.refresh_all();
+  let processes: Vec<&sysinfo::Process> = system.get_process_by_name(name);
+
+  if processes.len() == 1 {
+    return Ok(processes[0].pid() as DWORD);
+  }
+  return Err("Process not found!");
 }
 
 pub struct CORProcess {
@@ -36,6 +48,11 @@ impl Drop for CORProcess {
 }
 
 impl CORProcess {
+  pub fn by_name(name: &str) -> Self {
+    let pid: DWORD = get_process_id(name).unwrap();
+    return CORProcess::new(pid);
+  }
+
   pub fn new(pid: DWORD) -> Self {
     let handle = unsafe {
       OpenProcess(PROCESS_ALL_ACCESS, FALSE, pid)
@@ -97,7 +114,7 @@ impl CORProcess {
 //    return unsafe { GetProcAddress(module_handle, c_proc_name_ptr) } as LPARAM;
   }
 
-  fn virtual_alloc<T: Sized + Copy + Clone>(&self) -> LPARAM {
+  fn virtual_alloc<T: Sized + Copy>(&self) -> LPARAM {
     return unsafe {
       VirtualAllocEx(
         self.handle,
@@ -120,7 +137,7 @@ impl CORProcess {
     };
   }
 
-  fn read_proc_mem<T: Sized + Copy + Clone>(&self, addr: LPARAM) -> T {
+  fn read_proc_mem<T: Sized + Copy>(&self, addr: LPARAM) -> T {
     let mut buffer = std::vec::Vec::<BYTE>::with_capacity(std::mem::size_of::<T>());
     let ptr = buffer.as_mut_ptr() as *mut T;
     let mut num_read: SIZE_T = 0;
@@ -133,10 +150,10 @@ impl CORProcess {
         &mut num_read,
       )
     };
-    return (unsafe { *ptr }).clone();
+    return unsafe { *ptr };
   }
 
-  fn write_proc_mem<T: Sized + Copy + Clone>(&self, addr: LPARAM, bytes: &T) -> SIZE_T {
+  fn write_proc_mem<T: Sized + Copy>(&self, addr: LPARAM, bytes: &T) -> SIZE_T {
     let mut num_write: SIZE_T = 0;
     let success = unsafe {
       WriteProcessMemory(
@@ -164,7 +181,7 @@ impl CORProcess {
     };
   }
 
-  pub fn exec<T: Sized + Copy + Clone, R: Sized + Copy + Clone>(&self, module_name: &str, proc_name: &str, param: &T) -> R {
+  pub fn exec<T: Sized + Copy, R: Sized + Copy>(&self, module_name: &str, proc_name: &str, param: &T) -> R {
     let module_handle = self.get_module_handle(module_name) as LPARAM;
 
     let _module_handle = get_module(module_name).unwrap() as LPARAM;
@@ -193,9 +210,9 @@ impl CORProcess {
 
     let result = self.read_proc_mem::<R>(wrapper.ptr_result);
 
-//    self.virtual_free(wrapper.ptr_param);
-//    self.virtual_free(wrapper.ptr_result);
-//    self.virtual_free(wrapper_addr);
+    self.virtual_free(wrapper.ptr_param);
+    self.virtual_free(wrapper.ptr_result);
+    self.virtual_free(wrapper_addr);
 
     return result;
   }
@@ -234,12 +251,12 @@ impl RemoteThread {
     return remote_thread;
   }
 
-  pub fn read_param<T: Sized + Copy + Clone>(&self) -> T {
+  pub fn read_param<T: Sized + Copy>(&self) -> T {
     let ptr = self.wrapper.ptr_param as *const T;
-    return (unsafe { *ptr }).clone();
+    return unsafe { *ptr };
   }
 
-  pub fn write_result<R: Sized + Copy + Clone>(&self, result: &R) {
+  pub fn write_result<R: Sized + Copy>(&self, result: &R) {
     unsafe {
       ptr::copy(
         result as *const R,

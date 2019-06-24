@@ -11,42 +11,34 @@ pub struct Setting<T> {
     pub value: T,
 }
 
-#[derive(Serialize, Deserialize, FromForm, Copy, Clone, Debug)]
+#[derive(Serialize, Deserialize, FromForm, Clone, Copy, Debug)]
 pub struct Settings {
-    pub game_dir: String,
+//    pub game_dir: String,
     pub alt_tab: bool,
     pub blacklist: bool,
     pub skip_launcher: bool,
     pub skip_language_selection: bool,
 }
 
-#[derive(Copy, Clone, Debug)]
-pub struct Settin {
-    pub alt_tab: i32,
-    pub blacklist: i32,
-    pub skip_launcher: i32,
-    pub skip_language_selection: i32,
-}
-
 const DEBUG_MODE: &'static bool = &false;
 const DB_NAME: &'static str = "config.pickle.db";
 // TODO: get from somewhere else
-// const ORIGIN_GAMES_DIRECTORY: &'static str = "D:\\Origin Games";
+const ORIGIN_GAMES_DIRECTORY: &'static str = "C:\\Program Files (x86)\\Origin Games";
 
 impl Settings {
     fn get_config_ini_path() -> PathBuf {
-        return Path::new(&Settings::game_dir())
+        return Path::new(ORIGIN_GAMES_DIRECTORY)
             .join("FIFA 19")
             .join("FIFASetup")
             .join("config.ini");
     }
 
     fn get_locale_ini_path() -> PathBuf {
-        return Path::new(&Settings::game_dir()).join("FIFA 19").join("Data").join("locale.ini");
+        return Path::new(ORIGIN_GAMES_DIRECTORY).join("FIFA 19").join("Data").join("locale.ini");
     }
 
     fn get_locale_ini_bak_path() -> PathBuf {
-        return Path::new(&Settings::game_dir())
+        return Path::new(ORIGIN_GAMES_DIRECTORY)
             .join("FIFA 19")
             .join("Data")
             .join("locale.ini.bak");
@@ -108,7 +100,7 @@ impl Settings {
         db.set("skip_language_selection", &skip_language_selection).unwrap();
 
         Settings {
-            game_dir: db.get::<String>("game_dir").unwrap(),
+//            game_dir: db.get::<String>("game_dir").unwrap(),
             alt_tab: db.get::<bool>("alt_tab").unwrap(),
             blacklist: db.get::<bool>("blacklist").unwrap(),
             skip_launcher: db.get::<bool>("skip_launcher").unwrap(),
@@ -122,7 +114,7 @@ impl Settings {
                 .unwrap();
 
         Settings {
-            game_dir: db.get::<String>("game_dir").unwrap(),
+//            game_dir: db.get::<String>("game_dir").unwrap(),
             alt_tab: db.get::<bool>("alt_tab").unwrap(),
             blacklist: db.get::<bool>("blacklist").unwrap(),
             skip_launcher: db.get::<bool>("skip_launcher").unwrap(),
@@ -178,12 +170,12 @@ impl Settings {
         db.get::<bool>(key).unwrap()
     }
 
-    pub fn set_all(settings: Settings) {
+    pub fn set_all(settings: &Settings) {
         let mut db =
             PickleDb::load(DB_NAME, PickleDbDumpPolicy::DumpUponRequest, SerializationMethod::Json)
                 .unwrap();
 
-        db.set("game_dir", &settings.game_dir).unwrap();
+//        db.set("game_dir", &settings.game_dir).unwrap();
         db.set("alt_tab", &settings.alt_tab).unwrap();
         db.set("blacklist", &settings.blacklist).unwrap();
         db.set("skip_launcher", &settings.skip_launcher).unwrap();

@@ -44,13 +44,12 @@ fn get_process_id(name: &str) -> Result<DWORD, &str> {
 
 pub struct Process {
     handle: HANDLE,
-    pub pid: DWORD,
 }
 
 impl Process {
     pub fn current() -> Self {
         let handle = unsafe { GetCurrentProcess() };
-        return Process { handle, pid: handle as DWORD };
+        return Process { handle };
     }
 
     pub fn wait_for(name: &str) -> Self {
@@ -74,7 +73,6 @@ impl Process {
           handle: unsafe {
             OpenProcess(PROCESS_ALL_ACCESS, FALSE, pid)
           },
-          pid,
         };
     }
 

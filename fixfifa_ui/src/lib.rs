@@ -23,6 +23,7 @@ use std::sync::mpsc;
 use std::sync::mpsc::Sender;
 use std::thread;
 use std::thread::JoinHandle;
+use fixfifa_common::cors::CORProcess;
 
 // TODO: use following statics instead of hardcoded paths
 // Path::new("/etc").join("passwd")
@@ -47,14 +48,20 @@ impl<'a, 'b> Context<'a, 'b> {
 fn set_all_settings(settings_form: Form<Settings>) -> Flash<Redirect> {
     let new_settings = settings_form.into_inner();
     let _updates = Settings {
-        game_dir: new_settings.game_dir,
+//        game_dir: new_settings.game_dir,
         alt_tab: new_settings.alt_tab,
         blacklist: new_settings.blacklist,
         skip_launcher: new_settings.skip_launcher,
         skip_language_selection: new_settings.skip_language_selection,
     };
+    println!("{:?}", _updates);
 
-    Settings::set_all(_updates);
+    Settings::set_all(&_updates);
+    let p = CORProcess::by_name("FIFA19.exe");
+    let applied = p.exec::<Settings, bool>("fixfifa.dll", "settings", &_updates);
+
+    println!("{:?}", applied);
+
     return Flash::success(Redirect::to("/"), format!("settings applied..."));
 }
 

@@ -9,11 +9,12 @@ extern crate winapi;
 
 use fixfifa_common::settings::Settings;
 use std::path::{Path, PathBuf};
+use fixfifa_common::cors::CORProcess;
 
 mod injector;
 
 fn main() {
-    //    let settings = Settings::new();
+    let settings = Settings::new();
     let log_config_path = Path::new(".").join("config").join("log4rs.yaml");
     let lib_dll_path = Path::new(".").join("target").join("debug").join("fixfifa.dll");
 
@@ -21,7 +22,6 @@ fn main() {
     log4rs::init_file(log_config_path.to_str().unwrap(), Default::default()).unwrap();
 
     println!("using dll: '{}'", lib_dll_path.canonicalize().unwrap().to_str().unwrap());
-    //    fixfifa_ui::start_ui();
 
     //  attach to process
     match injector::Process::wait_for("FIFA19.exe") {
@@ -34,6 +34,11 @@ fn main() {
 
             // close process handle
             process.close();
+
+            let p = CORProcess::by_name("FIFA19.exe");
+            let applied = p.exec::<Settings, bool>("fixfifa.dll", "settings", &settings);
         }
     }
+
+    fixfifa_ui::start_ui();
 }
