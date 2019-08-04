@@ -7,7 +7,8 @@ extern crate rocket_contrib;
 #[macro_use]
 extern crate serde_derive;
 
-use fixfifa_common::settings::{Setting, Settings};
+use fixfifa_common::cors::CORProcess;
+use fixfifa_common::settings::{InMemorySettings, Setting, Settings};
 use rocket::request::FlashMessage;
 use rocket::request::Form;
 use rocket::response::{Flash, Redirect};
@@ -23,7 +24,6 @@ use std::sync::mpsc;
 use std::sync::mpsc::Sender;
 use std::thread;
 use std::thread::JoinHandle;
-use fixfifa_common::cors::CORProcess;
 
 // TODO: use following statics instead of hardcoded paths
 // Path::new("/etc").join("passwd")
@@ -47,20 +47,34 @@ impl<'a, 'b> Context<'a, 'b> {
 #[post("/settings", data = "<settings_form>")]
 fn set_all_settings(settings_form: Form<Settings>) -> Flash<Redirect> {
     let new_settings = settings_form.into_inner();
+    let _in_memory_updates =
+        InMemorySettings { alt_tab: new_settings.alt_tab, blacklist: new_settings.blacklist };
     let _updates = Settings {
-//        game_dir: new_settings.game_dir,
-        alt_tab: new_settings.alt_tab,
-        blacklist: new_settings.blacklist,
+        game_dir: new_settings.game_dir,
         skip_launcher: new_settings.skip_launcher,
         skip_language_selection: new_settings.skip_language_selection,
+        alt_tab: new_settings.alt_tab,
+        blacklist: new_settings.blacklist,
     };
-    println!("{:?}", _updates);
+    println!("in memory:");
+    println!(
+        "alt_tab: {}, blacklist: {}",
+        _in_memory_updates.alt_tab, _in_memory_updates.blacklist
+    );
+    println!("all:");
+    println!(
+        "game_dir: {}, skip_launcher: {}, skip_language_selection: {} alt_tab: {}, blacklist: {}",
+        _updates.game_dir,
+        _updates.skip_launcher,
+        _updates.skip_language_selection,
+        _updates.alt_tab,
+        _updates.blacklist
+    );
 
-    Settings::set_all(&_updates);
-    let p = CORProcess::by_name("FIFA19.exe");
-    let applied = p.exec::<Settings, bool>("fixfifa.dll", "settings", &_updates);
-
-    println!("{:?}", applied);
+    //    Settings::set_all(&_in_memory_updates);
+    //    let p = CORProcess::by_name("FIFA19.exe");
+    //    let applied = p.exec::<Settings, bool>("fixfifa.dll", "settings", &_updates);
+    //    println!("{:?}", applied);
 
     return Flash::success(Redirect::to("/"), format!("settings applied..."));
 }

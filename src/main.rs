@@ -7,9 +7,9 @@ extern crate sysinfo;
 extern crate tokio;
 extern crate winapi;
 
+use fixfifa_common::cors::CORProcess;
 use fixfifa_common::settings::Settings;
 use std::path::{Path, PathBuf};
-use fixfifa_common::cors::CORProcess;
 
 mod injector;
 
@@ -23,7 +23,7 @@ fn main() {
 
     println!("using dll: '{}'", lib_dll_path.canonicalize().unwrap().to_str().unwrap());
 
-    //  attach to process
+    // attach to process
     match injector::Process::wait_for("FIFA19.exe") {
         process => {
             // inject dll (DLLMain called)
@@ -35,10 +35,9 @@ fn main() {
             // close process handle
             process.close();
 
-            let p = CORProcess::by_name("FIFA19.exe");
-            let applied = p.exec::<Settings, bool>("fixfifa.dll", "settings", &settings);
+            //            let p = CORProcess::by_name("FIFA19.exe");
+            //            let applied = p.exec::<Settings, bool>("fixfifa.dll", "settings", &settings);
         }
     }
-
-    fixfifa_ui::start_ui();
+    // fixfifa_ui::start_ui();
 }
