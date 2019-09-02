@@ -6,30 +6,32 @@ FIFA (19) fixes
 
 ### Rant (aka "Prologue")
 
-EA just doesn\'t give a fuck!
+EA just doesn't give a fuck!
 Each year, they release a new expensive game (which, at most, should be considered a DLC), patch it few times and release fucking FUT cards.
 Couple of months into the game, they stop updating/patching all together (except FUT ofc).
 
 Even worst than their update/release politics, their processing of cheaters/hacker/bots/younameit...
 Wanna know how hard it is to cheat in pro clubs?  
 See: https://www.elitepvpers.com/forum/fifa/4533276-free-pro-clubs-trainer-fifa-19-a.html  
-Public forum, free (no more Bitcoin transfers to some shady russian Youtuber, right?) and including instruction  
-btw: Props to marcopro007 for sharing his hack open and publicly; nice work and attitude, bro! 
+Public forum, includes instructions and free (no more Bitcoin transfers to some shady russian YouTubers, right?) and
+btw: Props to `marcopro007` for sharing his hack open and publicly; nice work and nice attitude, bro! 
 
-Furthermore, there is no acceptable/easy way to report players (One has to remember their nick, and search them in origin? Also, how do I search clubs in origin? Oo)  
+Furthermore, there is no acceptable/easy way to report cheating players (One has to remember their nick, and search them in origin? Also, how do I search clubs in origin? Oo)  
 But, even if reported and proven guilty (via videos and what not), there will be no punishments from EA... - don\'t even bother
 
-Other then to "speak with your wallet" (which doesn\'t work as it seems -  at all), we took matters in our own hands.
+Other then to "speak with your wallet" (which doesn't work as it seems -  at all), there is no way to convince EA to ever change...
 
-So, tldr: **FUCK YOU EA!** and let us introduce \#FixFifa 
+So, we took matters in our own hands...
+
+tl;dr: **FUCK YOU, EA!** and let us introduce \#FixFifa 
 
 ## Introduction
 
-As stated, this is a (hopefully growing) compilation of hacks to add some desperately required features to FIFA 
+As stated, this is a (hopefully growing) compilation of hacks to add some desperately needed features to FIFA 
 
 ### How does it work?
 
-(Not entirely) coincidentally, we're using the same techniques to identify cheaters as they use to cheat in the first place...  
+(Not entirely coincidentally,) we're using the same techniques to identify cheaters as they use to cheat in the first place...  
 So, I guess this violates EAs ToS? right? maybe?
 
 ## Hacks
@@ -44,9 +46,9 @@ I've started a (master-)list of ~5 teams [hosted publicly](https://s3.eu-central
 #### Key points:
 
 * Runs on the good guys' (i.e. not cheaters) PCs only
-* There don't _has_ to be large amount of users for this tool; works for a single team just as good
+* There don't _has_ to be large amount of users for this tool; works for a single player just as good
 * But, the more players use this tool, the better the swamp can be drained
-* No need to be (absolutely) sure you've identified cheaters
+* No need to be (absolutely) sure you've identified cheaters, everyone can be blocked
 * Game will be left before kicking off (if matched against cheating teams)
 
 #### Shame list
@@ -64,15 +66,6 @@ or:
 ...
 
 ## Technical Details
-
-### Fetch "official" ProClubs Stats
-
-`$ curl https://www.easports.com/iframe/fifa17proclubs/api/platforms/PC/clubs/822/membersComplete`
-`$ curl https://www.easports.com/iframe/fifa17proclubs/api/platforms/PC/clubs/822/stats`
-`$ curl https://www.easports.com/iframe/fifa17proclubs/api/platforms/PC/clubs/822/matches`
-`$ curl https://www.easports.com/iframe/fifa17proclubs/api/platforms/PC/seasonRankLeaderboard`
-`$ curl https://www.easports.com/iframe/fifa17proclubs/api/platforms/PC/clubRankLeaderboard`
-
 
 ### Hooking / Hacking / Memory manipulation
 * event to listen to `EVENT_PREGAME_GROUP_ATTRIBUTE_CHANGED`
@@ -171,12 +164,12 @@ Keep in mind: We both have full time jobs, so there is a big maybe behind all fo
 * local blacklists
 * notify users when and why plug was pulled
 * figure out how users can find out cheaters ids ("Report Team/Players" button)
-* some sort of voting/review system for the master list (maybe?)
+* some sort of voting/review system for the master list
 * some way to get of the master list (e.g. if falsely added)
 * expand to other game modes
-* maybe implement some style of server-client model
+* maybe implement some server-client model
   * don't rely on lists
-  * master (i.e. team captain) tells everybody: "get out"
+  * master (i.e. team captain) tells everybody: "get outta here"
 * check out different ways to disconnect
 
 ## Contribute
